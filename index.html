@@ -6,22 +6,28 @@
 <title>Transaction Details</title>
 
 <style>
-*{box-sizing:border-box}
+*{
+  box-sizing:border-box;
+}
 
 :root{
-  --blue:#0b8fd3;
-  --text:#3f4a56;
-  --muted:#75808b;
-  --line:#e4e8ed;
+  --blue:#0787ca;
+  --text:#172333;
+  --muted:#687582;
+  --line:#e6e9ed;
   --bg:#f8fafc;
-  --green:#12b886;
+}
+
+html,body{
+  margin:0;
+  padding:0;
+  background:#f8fafc;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  color:var(--text);
 }
 
 body{
-  margin:0;
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
-  color:var(--text);
-  background:var(--bg);
+  min-height:100vh;
 }
 
 a{
@@ -29,209 +35,186 @@ a{
   text-decoration:none;
 }
 
-button{
+button,
+input{
   font:inherit;
 }
 
+/* TOP */
+
 .top{
   background:white;
-  border-bottom:1px solid var(--line);
+  border-bottom:1px solid #e4e7eb;
 }
 
 .price{
-  padding:12px 24px;
-  color:#77818c;
-  border-bottom:1px solid var(--line);
+  padding:11px 20px;
+  color:#737e89;
+  font-size:14px;
+  border-bottom:1px solid #e4e7eb;
 }
 
 .price strong{
-  color:#1687c7;
+  color:#0787ca;
 }
 
 .down{
-  color:#e44b4b;
+  color:#e14d4d;
 }
 
 .header{
+  height:64px;
   display:flex;
   align-items:center;
-  gap:20px;
-  padding:14px 24px;
+  gap:15px;
+  padding:9px 20px;
 }
 
 .logo{
-  width:45px;
-  height:45px;
+  width:42px;
+  height:42px;
   border-radius:50%;
-  background:#18202a;
+  background:#18212c;
+  color:white;
   display:flex;
   align-items:center;
   justify-content:center;
-  color:white;
   font-weight:bold;
 }
 
 .brand{
-  font-size:25px;
-  font-weight:bold;
+  font-size:22px;
+  font-weight:700;
   color:#111;
-  min-width:220px;
 }
 
 .search{
   flex:1;
-  height:45px;
-  border:1px solid var(--line);
+  height:43px;
+  border:1px solid #dfe4e9;
   border-radius:8px;
-  padding:0 16px;
-  font-size:16px;
+  padding:0 15px;
+  font-size:15px;
+  outline:none;
 }
 
 .sign{
   white-space:nowrap;
+  color:#34404c;
+  font-size:14px;
 }
+
+/* PAGE */
 
 .container{
-  max-width:1100px;
+  width:min(1100px,100%);
   margin:auto;
-  padding:20px 24px 60px;
+  padding:18px 20px 60px;
 }
 
-.title{
+.page-title{
   display:flex;
-  align-items:center;
   justify-content:space-between;
-  gap:15px;
-  padding-bottom:18px;
+  align-items:center;
   border-bottom:1px solid var(--line);
+  padding-bottom:15px;
 }
 
-h1{
+.page-title h1{
   margin:0;
-  font-size:25px;
-  color:#252d36;
+  font-size:24px;
 }
 
 .actions{
   display:flex;
-  gap:9px;
+  gap:7px;
 }
 
-.menu{
-  position:relative;
-}
-
-.blue{
-  background:var(--blue);
-  color:white;
+.blue-btn{
+  background:#0787ca;
   border:0;
-  border-radius:8px;
-  padding:10px 15px;
-  cursor:pointer;
+  color:white;
+  border-radius:7px;
+  padding:9px 13px;
   font-weight:600;
 }
 
-.dropdown{
-  display:none;
-  position:absolute;
-  right:0;
-  top:48px;
-  min-width:180px;
-  background:white;
-  border:1px solid var(--line);
-  border-radius:9px;
-  box-shadow:0 10px 25px #0002;
-  z-index:20;
-  overflow:hidden;
-}
-
-.dropdown.show{
-  display:block;
-}
-
-.dropdown button{
-  width:100%;
-  border:0;
-  background:white;
-  padding:12px 15px;
-  text-align:left;
-  cursor:pointer;
-}
-
-.dropdown button:hover{
-  background:#f2f7fb;
-}
-
-.sponsored{
-  padding:16px 0;
-  color:#747e89;
+.sponsored-line{
+  padding:15px 0;
+  color:#727d87;
   border-bottom:1px solid var(--line);
 }
 
 .tabs{
   display:flex;
-  gap:9px;
-  padding:18px 0;
+  gap:7px;
+  padding:15px 0;
   flex-wrap:wrap;
 }
 
 .tab{
   border:0;
-  background:#e9eef3;
-  color:#243342;
-  border-radius:9px;
-  padding:9px 14px;
+  border-radius:8px;
+  background:#e9eef2;
+  padding:9px 13px;
   font-weight:600;
-  cursor:pointer;
+  color:#283744;
 }
 
 .tab.active{
-  background:var(--blue);
+  background:#0787ca;
   color:white;
 }
 
+/* ACTION */
+
 .card{
   background:white;
-  border:1px solid var(--line);
-  border-radius:14px;
+  border:1px solid #e2e6ea;
+  border-radius:12px;
   margin-bottom:14px;
 }
 
 .action{
-  padding:20px;
+  padding:18px;
 }
 
 .action-title{
-  font-weight:bold;
-  font-size:14px;
-  margin-bottom:9px;
+  font-size:13px;
+  font-weight:700;
+  margin-bottom:10px;
+  letter-spacing:.2px;
 }
 
 .action-line{
-  font-size:17px;
+  font-size:16px;
+  line-height:1.8;
+  overflow-wrap:anywhere;
 }
 
-.circle{
+.action-icon{
   display:inline-flex;
-  width:48px;
-  height:48px;
+  width:40px;
+  height:40px;
+  background:#e0e5e9;
   border-radius:50%;
-  background:#dbe1e8;
   align-items:center;
   justify-content:center;
-  margin-right:12px;
+  margin-right:7px;
 }
 
+/* DETAILS */
+
 .details{
-  padding:14px 24px;
+  padding:0 22px;
 }
 
 .row{
   display:grid;
   grid-template-columns:230px 1fr;
-  gap:12px;
-  padding:17px 0;
-  border-bottom:1px solid var(--line);
+  gap:15px;
+  padding:19px 0;
+  border-bottom:1px solid #e7eaed;
 }
 
 .row:last-child{
@@ -239,53 +222,137 @@ h1{
 }
 
 .label{
-  color:#77818c;
-  font-size:18px;
+  font-size:16px;
+  font-weight:600;
+  color:#172333;
 }
 
 .value{
-  font-size:17px;
+  font-size:16px;
+  line-height:1.65;
   overflow-wrap:anywhere;
+}
+
+.help{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:20px;
+  height:20px;
+  border:1.5px solid #263746;
+  border-radius:50%;
+  font-size:12px;
+  margin-right:4px;
+}
+
+.copy{
+  color:#a7afb7;
+  margin-left:4px;
 }
 
 .success{
   display:inline-block;
-  color:#08a985;
-  background:#e9fbf6;
-  border:1px solid #8fe6d2;
+  background:#e8faf5;
+  color:#0b9b82;
+  border:1px solid #a4e2d4;
   border-radius:8px;
-  padding:6px 10px;
-  font-weight:bold;
+  padding:4px 10px;
+  font-size:13px;
+  font-weight:700;
 }
 
 .badge{
   display:inline-block;
-  background:#edf0f4;
+  background:#f0f2f4;
   border-radius:8px;
-  padding:7px 10px;
-  margin-left:8px;
-  font-size:13px;
-  font-weight:bold;
+  padding:5px 9px;
+  font-size:12px;
+  font-weight:600;
+  margin-left:7px;
 }
+
+.time{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+}
+
+.time-box{
+  background:white;
+  border:1px solid #dfe3e7;
+  border-radius:9px;
+  padding:7px 10px;
+  margin-left:6px;
+}
+
+/* AD */
+
+.ad{
+  width:100%;
+  max-width:535px;
+  height:130px;
+  border:2px solid #e5bf22;
+  background:linear-gradient(135deg,#173b27,#4b1c5f,#762c54);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  text-align:center;
+  overflow:hidden;
+}
+
+.ad-left{
+  width:28%;
+  font-size:17px;
+  font-weight:800;
+}
+
+.ad-middle{
+  width:47%;
+  font-weight:900;
+  font-size:21px;
+  line-height:1.1;
+}
+
+.ad-middle span{
+  display:block;
+  font-size:14px;
+  margin-top:7px;
+}
+
+.ad-right{
+  width:25%;
+  font-size:43px;
+}
+
+.ad-button{
+  background:#f3d33a;
+  color:#3a2d00;
+  display:inline-block;
+  padding:6px 12px;
+  border-radius:18px;
+  margin-top:8px;
+  font-size:11px;
+}
+
+/* TRANSFERS */
 
 .transfer-buttons{
   display:flex;
-  gap:5px;
-  margin-bottom:10px;
-  flex-wrap:wrap;
+  gap:6px;
+  margin-bottom:12px;
 }
 
 .transfer-button{
   border:0;
+  background:#e9eef2;
+  padding:8px 11px;
   border-radius:8px;
-  padding:8px 12px;
-  background:#e9eef3;
   font-weight:600;
-  cursor:pointer;
 }
 
 .transfer-button.active{
-  background:var(--blue);
+  background:#0787ca;
   color:white;
 }
 
@@ -297,35 +364,36 @@ h1{
   display:block;
 }
 
+/* MORE */
+
 .more{
-  padding:20px 24px;
+  padding:18px 22px;
   color:#0787ca;
+  font-size:16px;
   cursor:pointer;
-  font-size:18px;
 }
 
 .more-content{
   display:none;
-  padding:0 24px 20px;
+  padding:0 22px 20px;
 }
 
 .more-content.show{
   display:block;
 }
 
+/* PRIVATE */
+
 .private{
-  padding:20px 24px;
+  padding:20px 22px;
 }
 
-.info{
-  padding:20px 0;
-  color:#74808b;
-  line-height:1.5;
-}
+/* FOOTER */
 
 footer{
-  border-top:1px solid var(--line);
-  padding:35px 24px 70px;
+  background:white;
+  border-top:1px solid #e2e6ea;
+  padding:35px 20px 70px;
 }
 
 .footer{
@@ -334,8 +402,8 @@ footer{
 }
 
 .footer-title{
-  font-size:22px;
-  color:#18314d;
+  font-size:21px;
+  font-weight:700;
 }
 
 .footer-grid{
@@ -347,9 +415,11 @@ footer{
 
 .footer-grid a{
   display:block;
-  margin:13px 0;
-  color:#26384b;
+  margin:10px 0;
+  color:#344656;
 }
+
+/* COOKIE */
 
 .cookie{
   position:fixed;
@@ -357,61 +427,158 @@ footer{
   right:16px;
   bottom:16px;
   background:white;
-  border:1px solid #dfe4e8;
+  border:1px solid #dfe3e7;
   border-radius:12px;
-  box-shadow:0 5px 24px #0002;
-  padding:15px 18px;
+  box-shadow:0 4px 25px rgba(0,0,0,.16);
+  padding:17px;
+  z-index:100;
   display:flex;
-  align-items:center;
   justify-content:space-between;
-  gap:20px;
-  z-index:50;
+  align-items:center;
+  gap:15px;
+}
+
+.cookie-text{
+  line-height:1.55;
+  font-size:15px;
 }
 
 .cookie button{
-  background:var(--blue);
-  color:white;
+  background:#0787ca;
   border:0;
-  border-radius:9px;
-  padding:11px 18px;
-  cursor:pointer;
+  color:white;
+  padding:10px 17px;
+  border-radius:8px;
+  white-space:nowrap;
 }
+
+/* MOCKUP NOTICE */
+
+.mockup{
+  text-align:center;
+  font-size:11px;
+  color:#9aa2aa;
+  padding:8px;
+}
+
+/* MOBILE */
 
 @media(max-width:700px){
 
-  .header{
-    padding:10px 14px;
+  .price{
+    padding:10px 15px;
   }
 
-  .search{
+  .header{
+    height:auto;
+    padding:9px 15px;
+  }
+
+  .logo,
+  .brand,
+  .sign{
     display:none;
   }
 
-  .brand{
-    min-width:auto;
-    font-size:21px;
+  .search{
+    width:100%;
+    flex:1;
   }
 
   .container{
-    padding:16px 12px 50px;
+    padding:0 16px 80px;
   }
 
-  .title{
-    align-items:flex-start;
-    flex-direction:column;
+  .page-title{
+    padding:14px 0;
+  }
+
+  .page-title h1{
+    font-size:18px;
   }
 
   .actions{
-    flex-wrap:wrap;
+    display:none;
+  }
+
+  .sponsored-line{
+    display:none;
+  }
+
+  .tabs{
+    display:none;
+  }
+
+  .action{
+    border-radius:0;
+    border-left:0;
+    border-right:0;
+    margin-left:-16px;
+    margin-right:-16px;
+  }
+
+  .action-title{
+    font-size:13px;
+  }
+
+  .action-line{
+    font-size:15px;
+  }
+
+  .details{
+    padding:0 16px;
+    border-radius:0;
+    border-left:0;
+    border-right:0;
   }
 
   .row{
-    grid-template-columns:1fr;
-    gap:6px;
+    display:block;
+    padding:17px 0;
+  }
+
+  .label{
+    margin-bottom:10px;
+    font-size:16px;
+  }
+
+  .value{
+    font-size:16px;
+  }
+
+  .time{
+    flex-wrap:wrap;
+  }
+
+  .time-box{
+    margin-left:0;
+  }
+
+  .ad{
+    height:125px;
+  }
+
+  .ad-middle{
+    font-size:17px;
   }
 
   .footer-grid{
     grid-template-columns:1fr;
+  }
+
+  footer{
+    display:none;
+  }
+
+  .cookie{
+    left:16px;
+    right:16px;
+    bottom:16px;
+    display:block;
+  }
+
+  .cookie button{
+    margin-top:12px;
   }
 }
 </style>
@@ -431,9 +598,7 @@ footer{
 
     <div class="logo">◈</div>
 
-    <div class="brand">
-      BscScan
-    </div>
+    <div class="brand">BscScan</div>
 
     <input
       class="search"
@@ -442,8 +607,6 @@ footer{
 
     <div class="sign">◉ Sign In</div>
 
-    <button>☰</button>
-
   </div>
 
 </header>
@@ -451,129 +614,45 @@ footer{
 
 <main class="container">
 
-  <div class="title">
+  <div class="page-title">
 
     <h1>
       Transaction Details
-      <button class="tab">‹</button>
-      <button class="tab">›</button>
     </h1>
 
     <div class="actions">
-
-      <div class="menu">
-
-        <button class="blue" onclick="toggle('buy')">
-          Buy⌄
-        </button>
-
-        <div class="dropdown" id="buy">
-
-          <button onclick="message('Buy BNB')">
-            Buy BNB
-          </button>
-
-          <button onclick="message('Buy Token')">
-            Buy Token
-          </button>
-
-          <button onclick="message('Swap')">
-            Swap
-          </button>
-
-        </div>
-
-      </div>
-
-
-      <div class="menu">
-
-        <button class="blue" onclick="toggle('play')">
-          Play⌄
-        </button>
-
-        <div class="dropdown" id="play">
-
-          <button onclick="message('Games')">
-            Games
-          </button>
-
-          <button onclick="message('Arcade')">
-            Arcade
-          </button>
-
-        </div>
-
-      </div>
-
-
-      <div class="menu">
-
-        <button class="blue" onclick="toggle('gaming')">
-          Gaming⌄
-        </button>
-
-        <div class="dropdown" id="gaming">
-
-          <button onclick="message('Gaming Hub')">
-            Gaming Hub
-          </button>
-
-          <button onclick="message('Rewards')">
-            Rewards
-          </button>
-
-        </div>
-
-      </div>
-
+      <button class="blue-btn">Buy⌄</button>
+      <button class="blue-btn">Play⌄</button>
+      <button class="blue-btn">Gaming⌄</button>
     </div>
 
   </div>
 
 
-  <div class="sponsored">
-
-    <b>Sponsored:</b>
-    Promotional content.
-
+  <div class="sponsored-line">
+    <b>Sponsored:</b> Promotional content.
   </div>
 
 
   <div class="tabs">
 
-    <button
-      class="tab active"
-      onclick="tab(this)"
-    >
+    <button class="tab active">
       Overview
     </button>
 
-    <button
-      class="tab"
-      onclick="tab(this)"
-    >
+    <button class="tab">
       Logs (2)
     </button>
 
-    <button
-      class="tab"
-      onclick="tab(this)"
-    >
+    <button class="tab">
       State
     </button>
 
-    <button
-      class="tab"
-      onclick="message('API panel opened')"
-    >
+    <button class="tab">
       &lt;/&gt; API
     </button>
 
-    <button
-      class="tab"
-      onclick="message('Additional actions')"
-    >
+    <button class="tab">
       ☷⌄
     </button>
 
@@ -583,18 +662,18 @@ footer{
   <section class="card action">
 
     <div class="action-title">
-      TRANSACTION ACTION
+      ⚡ BSCSCAN TRANSACTION ACTION
     </div>
 
     <div class="action-line">
 
-      <span class="circle">◈</span>
+      <span class="action-icon">◈</span>
 
       <a href="#">
-        0x6BD69eF3...4a8264E67
+        0x17D924D9...acE8c4
       </a>
 
-      Transfer <b>3</b>
+      <b>Transfer 3</b>
 
       <span>
         ◉ ERC20 ***
@@ -603,7 +682,7 @@ footer{
       to
 
       <a href="#">
-        0x17D924D9...acE8c48Fd
+        0xf918fF57...f798888
       </a>
 
     </div>
@@ -613,24 +692,34 @@ footer{
 
   <section class="card details">
 
+
+    <!-- TRANSACTION HASH -->
+
     <div class="row">
 
       <div class="label">
-        ❔ Transaction Hash:
+        <span class="help">?</span>
+        Transaction Hash:
       </div>
 
       <div class="value">
-        0xd2b6b400ec26c55c78b5b7e5733ba327d9afb0b7ebe005be0d1d21a25cd41aff
-        ▣
+
+        0xc5f85352af5cee9320a0995c37f76b74e961d471fc2a950f15329da6fb1a268a
+
+        <span class="copy">▢</span>
+
       </div>
 
     </div>
 
 
+    <!-- STATUS -->
+
     <div class="row">
 
       <div class="label">
-        ❔ Status:
+        <span class="help">?</span>
+        Status:
       </div>
 
       <div class="value">
@@ -644,20 +733,23 @@ footer{
     </div>
 
 
+    <!-- BLOCK -->
+
     <div class="row">
 
       <div class="label">
-        ❔ Block:
+        <span class="help">?</span>
+        Block:
       </div>
 
       <div class="value">
 
         <a href="#">
-          124362777
+          124363547
         </a>
 
         <span class="badge">
-          426043 Block Confirmations
+          614671 Block Confirmations
         </span>
 
       </div>
@@ -665,18 +757,25 @@ footer{
     </div>
 
 
+    <!-- TIMESTAMP -->
+
     <div class="row">
 
       <div class="label">
-        ❔ Timestamp:
+        <span class="help">?</span>
+        Timestamp:
       </div>
 
       <div class="value">
 
-        ◷ 2 days ago
+        <span class="time">
+          ◷
+          <span>3 days ago</span>
 
-        <span class="badge">
-          Sep-27-2026 04:13:10 PM +UTC⌄
+          <span class="time-box">
+            Sep-27-2026 04:18:57 PM +UTC
+            ˅
+          </span>
         </span>
 
       </div>
@@ -684,25 +783,49 @@ footer{
     </div>
 
 
+    <!-- SPONSORED -->
+
     <div class="row">
 
       <div class="label">
-        ❔ Sponsored:
+        <span class="help">?</span>
+        Sponsored:
       </div>
 
       <div class="value">
 
-        <div style="
-          height:110px;
-          background:#29204b;
-          display:flex;
-          align-items:center;
-          justify-content:center;
-          color:white;
-          font-size:24px;
-          font-weight:bold;
-        ">
-          PROMOTIONAL BANNER
+        <div class="ad">
+
+          <div class="ad-left">
+            ◉<br>
+            BC.GAME
+            <div style="font-size:9px;margin-top:8px;">
+              FAST-PAYOUT
+            </div>
+          </div>
+
+          <div class="ad-middle">
+
+            CRUSHING OFFER!
+
+            <span>
+              UP TO 5 BTC
+            </span>
+
+            <span>
+              WELCOME FREE SPINS
+            </span>
+
+            <div class="ad-button">
+              TAP TO CLAIM
+            </div>
+
+          </div>
+
+          <div class="ad-right">
+            🐉
+          </div>
+
         </div>
 
       </div>
@@ -710,52 +833,77 @@ footer{
     </div>
 
 
+    <!-- FROM -->
+
     <div class="row">
 
       <div class="label">
-        ❔ From:
+        <span class="help">?</span>
+        From:
       </div>
 
       <div class="value">
 
         <a href="#">
-          0x6BD69eF3948e703EC406ce5f73932944a8264E67
+          0x17D924D9A03Fb7bdf4A87c4281BE464acE8c48Fd
         </a>
 
-        ▣
+        <span class="copy">▢</span>
 
       </div>
 
     </div>
 
 
+    <!-- INTERACTED WITH -->
+
     <div class="row">
 
       <div class="label">
-        ❔ Interacted With (To):
+        <span class="help">?</span>
+        Interacted With (To):
       </div>
 
       <div class="value">
+
+        <span style="color:#b2b8be;margin-right:5px;">
+          ▤
+        </span>
 
         <a href="#">
           0xf918fF574849277eF0b8eb5e5F7E55996f798888
         </a>
 
-        ▣
-
-        <span style="color:#0aa987">
-          ●
-        </span>
+        <div style="margin-top:5px;color:#aeb5bb;">
+          ▢
+          <span style="
+            display:inline-flex;
+            align-items:center;
+            justify-content:center;
+            width:21px;
+            height:21px;
+            border-radius:50%;
+            background:#0bb18e;
+            color:white;
+            font-size:12px;
+            margin-left:5px;
+          ">
+            ✓
+          </span>
+        </div>
 
       </div>
 
     </div>
 
 
+    <!-- BEP-20 -->
+
     <div class="row">
 
       <div class="label">
-        ❔ BEP-20 Tokens Transferred:
+        <span class="help">?</span>
+        BEP-20 Tokens Transferred:
       </div>
 
       <div class="value">
@@ -764,14 +912,14 @@ footer{
 
           <button
             class="transfer-button active"
-            onclick="transfer(this,'all')"
+            onclick="showTransfer('all',this)"
           >
             All Transfers
           </button>
 
           <button
             class="transfer-button"
-            onclick="transfer(this,'net')"
+            onclick="showTransfer('net',this)"
           >
             Net Transfers
           </button>
@@ -779,29 +927,25 @@ footer{
         </div>
 
 
-        <div
-          id="all"
-          class="transfer active"
-        >
+        <div id="all" class="transfer active">
 
           <p>
 
             › From
 
             <a href="#">
-              0x6BD69eF3...4a8264E67
+              0x17D924D9...acE8c48Fd
             </a>
 
             To
 
             <a href="#">
-              0x17D924D9...acE8c48Fd
+              0xf918fF57...f798888
             </a>
 
             For <b>3</b>
 
           </p>
-
 
           <p>
 
@@ -816,10 +960,7 @@ footer{
         </div>
 
 
-        <div
-          id="net"
-          class="transfer"
-        >
+        <div id="net" class="transfer">
 
           <p>
             Net transfer:
@@ -833,17 +974,21 @@ footer{
     </div>
 
 
+    <!-- VALUE -->
+
     <div class="row">
 
       <div class="label">
-        ❔ Value:
+        <span class="help">?</span>
+        Value:
       </div>
 
       <div class="value">
 
-        🟡 <b>3 BNB</b>
+        🟡
+        <b>3 BNB</b>
 
-        <span style="color:#77818c">
+        <span style="color:#77818c;">
           ($2,269.80)
         </span>
 
@@ -852,10 +997,13 @@ footer{
     </div>
 
 
+    <!-- FEE -->
+
     <div class="row">
 
       <div class="label">
-        ❔ Transaction Fee:
+        <span class="help">?</span>
+        Transaction Fee:
       </div>
 
       <div class="value">
@@ -871,17 +1019,20 @@ footer{
     </div>
 
 
+    <!-- GAS -->
+
     <div class="row">
 
       <div class="label">
-        ❔ Gas Price:
+        <span class="help">?</span>
+        Gas Price:
       </div>
 
       <div class="value">
 
         0.000000007 BNB
 
-        <span style="color:#77818c">
+        <span style="color:#77818c;">
           (7 Gwei)
         </span>
 
@@ -892,11 +1043,13 @@ footer{
   </section>
 
 
+  <!-- MORE -->
+
   <section class="card">
 
     <div
       class="more"
-      onclick="more()"
+      onclick="showMore()"
       id="moreButton"
     >
       ＋ Click to show more
@@ -917,11 +1070,9 @@ footer{
 
       <p>
         Method ID:
-
-        <span style="color:#0787ca">
+        <span style="color:#0787ca;">
           0x00000000
         </span>
-
       </p>
 
     </div>
@@ -929,35 +1080,31 @@ footer{
   </section>
 
 
+  <!-- PRIVATE NOTE -->
+
   <section class="card private">
 
     <div class="label">
-      ❔ Private Note:
+      <span class="help">?</span>
+      Private Note:
     </div>
 
     <p>
-
       To access the
-
       <b>Private Note</b>
-
       feature, you must be
-
       <a href="#">
         Logged In
       </a>
-
     </p>
 
   </section>
 
 
-  <div class="info">
-
-    💡 A transaction is a cryptographically signed instruction
-    that changes the blockchain state.
-
+  <div class="mockup">
+    Static example page — not a real blockchain transaction.
   </div>
+
 
 </main>
 
@@ -974,45 +1121,33 @@ footer{
       BscScan is a Block Explorer and Analytics Platform for BNB Smart Chain.
     </p>
 
-
     <div class="footer-grid">
 
       <div>
-
         <h3>Company</h3>
-
         <a href="#">Delegate to BscScan</a>
         <a href="#">Brand Assets</a>
         <a href="#">Contact Us</a>
         <a href="#">Terms & Privacy</a>
         <a href="#">Bug Bounty</a>
-
       </div>
 
-
       <div>
-
         <h3>Community</h3>
-
         <a href="#">API Documentation</a>
         <a href="#">Knowledge Base</a>
         <a href="#">Network Status</a>
         <a href="#">Learn BSC</a>
         <a href="#">What is a Block Explorer?</a>
-
       </div>
 
-
       <div>
-
         <h3>Products & Services</h3>
-
         <a href="#">Advertise</a>
         <a href="#">Explorer as a Service</a>
         <a href="#">Multichain API</a>
         <a href="#">Priority Support</a>
         <a href="#">Blockscan</a>
-
       </div>
 
     </div>
@@ -1022,21 +1157,25 @@ footer{
 </footer>
 
 
+<!-- COOKIE NOTICE -->
+
 <div class="cookie" id="cookie">
 
-  <div>
+  <div class="cookie-text">
 
-    🍪 This website uses a cookie-style notice.
+    🍪 This website
+    <a href="#">uses cookies</a>
+    to improve your experience.
 
-    <a href="#">
-      Terms & Privacy
-    </a>
+    By continuing to use this website,
+    you agree to its
+    <a href="#">Terms</a>
+    and
+    <a href="#">Privacy Policy</a>.
 
   </div>
 
-  <button
-    onclick="document.getElementById('cookie').remove()"
-  >
+  <button onclick="closeCookie()">
     Got it!
   </button>
 
@@ -1045,77 +1184,29 @@ footer{
 
 <script>
 
-function toggle(id){
-
-  document
-    .querySelectorAll(".dropdown")
-    .forEach(x=>{
-
-      if(x.id!==id)
-        x.classList.remove("show");
-
-    });
-
-  document
-    .getElementById(id)
-    .classList.toggle("show");
-
-}
-
-
-document.addEventListener("click",function(e){
-
-  if(!e.target.closest(".menu")){
-
-    document
-      .querySelectorAll(".dropdown")
-      .forEach(x=>{
-        x.classList.remove("show");
-      });
-
-  }
-
-});
-
-
-function tab(button){
-
-  button
-    .parentElement
-    .querySelectorAll(".tab")
-    .forEach(x=>{
-      x.classList.remove("active");
-    });
-
-  button.classList.add("active");
-
-}
-
-
-function transfer(button,id){
-
-  document
-    .querySelectorAll(".transfer-button")
-    .forEach(x=>{
-      x.classList.remove("active");
-    });
-
-  button.classList.add("active");
+function showTransfer(id,button){
 
   document
     .querySelectorAll(".transfer")
-    .forEach(x=>{
-      x.classList.remove("active");
+    .forEach(function(item){
+      item.classList.remove("active");
+    });
+
+  document
+    .querySelectorAll(".transfer-button")
+    .forEach(function(item){
+      item.classList.remove("active");
     });
 
   document
     .getElementById(id)
     .classList.add("active");
 
+  button.classList.add("active");
 }
 
 
-function more(){
+function showMore(){
 
   const content =
     document.getElementById("moreContent");
@@ -1136,13 +1227,14 @@ function more(){
       "＋ Click to show more";
 
   }
-
 }
 
 
-function message(text){
+function closeCookie(){
 
-  alert(text);
+  document
+    .getElementById("cookie")
+    .remove();
 
 }
 
