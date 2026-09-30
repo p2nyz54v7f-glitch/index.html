@@ -172,6 +172,7 @@ h1{
   display:flex;
   gap:9px;
   padding:18px 0;
+  flex-wrap:wrap;
 }
 
 .tab{
@@ -271,6 +272,7 @@ h1{
   display:flex;
   gap:5px;
   margin-bottom:10px;
+  flex-wrap:wrap;
 }
 
 .transfer-button{
@@ -460,6 +462,7 @@ footer{
     <div class="actions">
 
       <div class="menu">
+
         <button class="blue" onclick="toggle('buy')">
           Buy⌄
         </button>
@@ -479,10 +482,12 @@ footer{
           </button>
 
         </div>
+
       </div>
 
 
       <div class="menu">
+
         <button class="blue" onclick="toggle('play')">
           Play⌄
         </button>
@@ -498,10 +503,12 @@ footer{
           </button>
 
         </div>
+
       </div>
 
 
       <div class="menu">
+
         <button class="blue" onclick="toggle('gaming')">
           Gaming⌄
         </button>
@@ -517,6 +524,7 @@ footer{
           </button>
 
         </div>
+
       </div>
 
     </div>
@@ -525,8 +533,10 @@ footer{
 
 
   <div class="sponsored">
+
     <b>Sponsored:</b>
-    Demo sponsored area — promotional content placeholder.
+    Promotional content.
+
   </div>
 
 
@@ -584,7 +594,7 @@ footer{
         0x6BD69eF3...4a8264E67
       </a>
 
-      Transfer 10
+      Transfer <b>3</b>
 
       <span>
         ◉ ERC20 ***
@@ -624,9 +634,11 @@ footer{
       </div>
 
       <div class="value">
+
         <span class="success">
           ● Success
         </span>
+
       </div>
 
     </div>
@@ -773,7 +785,9 @@ footer{
         >
 
           <p>
+
             › From
+
             <a href="#">
               0x6BD69eF3...4a8264E67
             </a>
@@ -784,14 +798,19 @@ footer{
               0x17D924D9...acE8c48Fd
             </a>
 
-            For <b>10</b>
+            For <b>3</b>
+
           </p>
 
+
           <p>
+
             ◉
+
             <a href="#">
               ERC20 ***
             </a>
+
           </p>
 
         </div>
@@ -804,7 +823,7 @@ footer{
 
           <p>
             Net transfer:
-            <b>10 ERC20</b>
+            <b>3 ERC20</b>
           </p>
 
         </div>
@@ -821,10 +840,13 @@ footer{
       </div>
 
       <div class="value">
-        🟡 0 BNB
+
+        🟡 <b>3 BNB</b>
+
         <span style="color:#77818c">
-          ($0.00)
+          ($2,269.80)
         </span>
+
       </div>
 
     </div>
@@ -837,10 +859,13 @@ footer{
       </div>
 
       <div class="value">
-        0 BNB
+
+        0.0007 BNB
+
         <span class="badge">
-          $0.00
+          $0.53
         </span>
+
       </div>
 
     </div>
@@ -853,10 +878,13 @@ footer{
       </div>
 
       <div class="value">
-        0 BNB
+
+        0.000000007 BNB
+
         <span style="color:#77818c">
-          (0 BNB)
+          (7 Gwei)
         </span>
+
       </div>
 
     </div>
@@ -869,6 +897,7 @@ footer{
     <div
       class="more"
       onclick="more()"
+      id="moreButton"
     >
       ＋ Click to show more
     </div>
@@ -888,9 +917,11 @@ footer{
 
       <p>
         Method ID:
+
         <span style="color:#0787ca">
           0x00000000
         </span>
+
       </p>
 
     </div>
@@ -905,12 +936,17 @@ footer{
     </div>
 
     <p>
+
       To access the
+
       <b>Private Note</b>
+
       feature, you must be
+
       <a href="#">
         Logged In
       </a>
+
     </p>
 
   </section>
@@ -989,10 +1025,13 @@ footer{
 <div class="cookie" id="cookie">
 
   <div>
-    🍪 This demo uses a cookie-style notice.
+
+    🍪 This website uses a cookie-style notice.
+
     <a href="#">
       Terms & Privacy
     </a>
+
   </div>
 
   <button
@@ -1011,13 +1050,16 @@ function toggle(id){
   document
     .querySelectorAll(".dropdown")
     .forEach(x=>{
+
       if(x.id!==id)
         x.classList.remove("show");
+
     });
 
   document
     .getElementById(id)
     .classList.toggle("show");
+
 }
 
 
@@ -1079,7 +1121,7 @@ function more(){
     document.getElementById("moreContent");
 
   const button =
-    document.querySelector(".more");
+    document.getElementById("moreButton");
 
   content.classList.toggle("show");
 
